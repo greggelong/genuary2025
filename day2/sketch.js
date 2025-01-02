@@ -5,6 +5,7 @@ function preload() {
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  pixelDensity(1);
   imageMode(CENTER);
   textAlign(CENTER, CENTER);
   hair.resize(200, 0);
