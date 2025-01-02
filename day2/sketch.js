@@ -5,12 +5,13 @@ function preload() {
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(0);
+
   pixelDensity(1);
   imageMode(CENTER);
   textAlign(CENTER, CENTER);
   hair.resize(200, 0);
   frameRate(7);
+  background(0);
 }
 
 function draw() {
