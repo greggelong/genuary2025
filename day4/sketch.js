@@ -1,27 +1,30 @@
 let canvasSize = 900;
 let maxDepth = 9; // Maximum recursion depth
-let minSize =5
+let minSize = 5;
+let cnv;
 
 function setup() {
-  createCanvas(canvasSize, canvasSize);
+  cnv = createCanvas(canvasSize, canvasSize);
+  let cx = (windowWidth - cnv.width) / 2;
+  let cy = (windowHeight - cnv.height) / 2;
+  cnv.position(cx, cy);
   background(0); // Matte black background
   //noLoop();
   //angleMode(DEGREES)
-  frameRate(5)
+  frameRate(5);
   //drawSquares(width / 2, height / 2, canvasSize, maxDepth);
 }
 
-function draw(){
-  background(0)
-  maxDepth = int(map(sin(frameCount/2),-1,1,2,9))
+function draw() {
+  background(0);
+  maxDepth = int(map(sin(frameCount / 2), -1, 1, 2, 9));
   //maxDepth = maxDepth%9
-  print(maxDepth)
-  drawSquares(width / 2, height / 2, canvasSize, maxDepth);
-
+  print(maxDepth);
+  drawSquaresa(width / 2, height / 2, canvasSize, maxDepth);
 }
 
 function drawSquares(x, y, size, depth) {
-  if (depth<=0) return; // Stop when depth is 0
+  if (depth <= 0) return; // Stop when depth is 0
 
   // Draw the current square
   let shade = map(size, minSize, canvasSize, 5, 40); // Shade based on depth
@@ -40,4 +43,26 @@ function drawSquares(x, y, size, depth) {
   drawSquares(x + offset, y - offset, newSize, depth - 1); // Top-right
   drawSquares(x - offset, y + offset, newSize, depth - 1); // Bottom-left
   drawSquares(x + offset, y + offset, newSize, depth - 1); // Bottom-right
+}
+
+function drawSquaresa(x, y, size, depth) {
+  if (depth <= 0) return; // Stop when depth is 0
+
+  // Draw the current square
+  let shade = map(size, minSize, canvasSize, 5, 40); // Shade based on depth
+  fill(255);
+  //noStroke();
+  rectMode(CENTER);
+  ellipse(x, y, size, size);
+
+  // Recursively draw the smaller squares in the center and corners
+  let newSize = size * 0.5; // Reduce size by half
+  let offset = size / 2;
+
+  // Draw squares in all 5 positions (center + four corners)
+  drawSquaresa(x, y, newSize, depth - 1); // Center square
+  drawSquaresa(x, y - offset, newSize, depth - 1); // Top-left
+  //drawSquaresa(x + offset, y, newSize, depth - 1); // Top-right
+  drawSquaresa(x, y + offset, newSize, depth - 1); // Bottom-left
+  // drawSquaresa(x - offset, y, newSize, depth - 1); // Bottom-right
 }
