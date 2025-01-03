@@ -4,7 +4,7 @@ link for for day three 42 lines of code
 
 playable commodore 64 game
 
-use j l o k to move the ball in the maze
+use j l i k to move the ball in the maze
 
 get all the diamonds don't hit walls
 
