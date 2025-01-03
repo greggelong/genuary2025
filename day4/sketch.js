@@ -66,3 +66,9 @@ function drawSquaresa(x, y, size, depth) {
   drawSquaresa(x, y + offset, newSize, depth - 1); // Bottom-left
   // drawSquaresa(x - offset, y, newSize, depth - 1); // Bottom-right
 }
+
+function drawSq(x, y, size, depth) {
+  rect(x, y, size);
+
+  //
+}
