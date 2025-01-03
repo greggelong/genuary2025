@@ -2,9 +2,11 @@ let canvasSize = 900;
 let maxDepth = 9; // Maximum recursion depth
 let minSize = 5;
 let cnv;
+let offset = 1.2;
 
 function setup() {
   cnv = createCanvas(canvasSize, canvasSize);
+  pixelDensity(1);
   let cx = (windowWidth - cnv.width) / 2;
   let cy = (windowHeight - cnv.height) / 2;
   cnv.position(cx, cy);
@@ -17,10 +19,15 @@ function setup() {
 
 function draw() {
   background(0);
-  maxDepth = int(map(sin(frameCount / 2), -1, 1, 2, 9));
+  maxDepth = int(map(sin(frameCount / 2), -1, 1, 0, 9));
+  if (frameCount % 20 === 0) {
+    offset = offset - 0.1;
+    if (offset < 0.8) offset = 1.2;
+  }
   //maxDepth = maxDepth%9
   print(maxDepth);
-  drawSquaresa(width / 2, height / 2, canvasSize, maxDepth);
+  //drawSquaresa(width / 2, height / 2, canvasSize, maxDepth);
+  drawSq(width / 2, height / 2, canvasSize / 2, maxDepth);
 }
 
 function drawSquares(x, y, size, depth) {
@@ -68,7 +75,20 @@ function drawSquaresa(x, y, size, depth) {
 }
 
 function drawSq(x, y, size, depth) {
-  rect(x, y, size);
+  let shade = map(size, minSize, canvasSize / 2, 5, 40);
+  fill(shade);
+  noStroke();
+  rectMode(CENTER);
+  rect(x, y, size, size);
+  // set offset as a global;
+
+  // exit condition
+  if (depth > 0) {
+    drawSq(x + size / offset, y, size / 2, depth - 1);
+    drawSq(x - size / offset, y, size / 2, depth - 1);
+    drawSq(x, y + size / offset, size / 2, depth - 1);
+    drawSq(x, y - size / offset, size / 2, depth - 1);
+  }
 
   //
 }
