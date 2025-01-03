@@ -92,3 +92,9 @@ function drawSq(x, y, size, depth) {
 
   //
 }
+
+function keyPressed() {
+  if (key === "s" || key === "S") {
+    saveCanvas("blackonblck" + frameCount, "png");
+  }
+}
