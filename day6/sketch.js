@@ -9,6 +9,7 @@ function setup() {
   //fullScreen();
   background(0);
   stroke(0, 255, 0);
+  strokeWeight(3);
   sp = width / lns;
   // small change
   sbtm = 10;
@@ -27,7 +28,11 @@ function draw() {
   for (let i = 0; i < lns; i++) {
     line(i * sp, h, (i - lns / 2) * sp * sbtm, height);
   }
-  scrll += 20;
+  if (mouseX > width / 2) {
+    scrll += 20;
+  } else {
+    scrll -= 20;
+  }
   print(scrll);
 }
 
