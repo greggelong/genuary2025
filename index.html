@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genuary 2025 Links</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      .container {
+        max-width: 800px;
+        margin: 2rem auto;
+        background: #fff;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #555;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        margin: 0.5rem 0;
+      }
+      a {
+        text-decoration: none;
+        color: #007bff;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Genuary 2025 Links</h1>
+      <ul id="links"></ul>
+    </div>
+
+    <script>
+      // Generate links for all 31 days of January
+      const baseUrl = "https://greggelong.github.io/genuary2025/day";
+      const linksContainer = document.getElementById("links");
+
+      for (let day = 1; day <= 31; day++) {
+        const listItem = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = `${baseUrl}${day}`;
+        link.textContent = `Day ${day}`;
+        link.target = "_blank"; // Open link in a new tab
+        listItem.appendChild(link);
+        linksContainer.appendChild(listItem);
+      }
+    </script>
+  </body>
+</html>
