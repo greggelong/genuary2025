@@ -5,13 +5,23 @@ let sz = 20;
 //let spy =1
 let sp = 20;
 let clrs;
+let textContain;
+let dig = "";
+let cnv;
 
 let tauIndex = 0;
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background(0);
+  cnv = createCanvas(900, 900);
+  let cx = (windowWidth - cnv.width) / 2;
+  let cy = (windowHeight - cnv.height) / 2;
+  cnv.position(cx, cy);
+  pixelDensity(1);
+  background(0, 0);
   x = width / 2;
   y = height / 2;
+  textContain = createDiv();
+  textContain.style("word-wrap", "break-word");
+  textContain.style("font-size", "x-large");
 
   clrs = [
     color(255, 222, 45), // Yellow
@@ -80,13 +90,14 @@ function draw() {
   // fill(255, 255, 0);
 
   if (x + sz / 2 < 0) x = width - sz / 2;
-  if (x - sz / 2 > width) x = sz / 2;
-  if (y + sz / 2 < 0) y = height - sz / 2;
-  if (y - sz / 2 > height) y = sz / 2;
-
+  else if (x - sz / 2 > width) x = sz / 2;
+  else if (y + sz / 2 < 0) y = height - sz / 2;
+  else if (y - sz / 2 > height) y = sz / 2;
+  dig += tauarr[tauIndex];
+  textContain.html(dig);
   ellipse(x, y, sz, sz);
   tauIndex++;
-  if (tauIndex > tauarr.length) {
+  if (tauIndex > tauarr.length - 1) {
     tauIndex = 0;
   }
 }
