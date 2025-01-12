@@ -24,8 +24,10 @@ function draw() {
   currentSpace = spaces.splice(spaceIndex, 1)[0];
 
   // Random size for the rectangle, constrained to the available space
-  let rw = random(20, currentSpace.w);
-  let rh = random(20, currentSpace.h);
+  // if the random(A,B)  if the A is 1 it will not overlap but will take a long tim to fill
+  // if large will have overlaps
+  let rw = random(10, currentSpace.w);
+  let rh = random(10, currentSpace.h);
 
   // Draw the rectangle
   fill(random(100, 255), random(100, 255), random(100, 255), 200);
