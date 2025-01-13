@@ -1,10 +1,13 @@
 let ty;
 let cnv;
 function setup() {
+  pixelDensity(1);
   cnv = createCanvas(900, 900);
+
   let cx = (windowWidth - cnv.width) / 2;
   let cy = (windowHeight - cnv.height) / 2;
   cnv.position(cx, cy);
+
   background(190);
   angleMode(DEGREES);
   noStroke();
