@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <main>
+      <!-- Div for inputs above canvas -->
+      <div id="input-container">
+        <div id="input-text-container">
+          <label for="text-input">Enter Text:</label>
+          <input type="text" id="text-input" />
+        </div>
+        <div id="multiplier-container">
+          <label for="multiplier-input">Multiplier (default 33):</label>
+          <input type="number" id="multiplier-input" value="33" />
+        </div>
+        <button id="submit-button">Submit</button>
+      </div>
+
+      <!-- Canvas area -->
+      <div id="canvas-container">
+        <!-- The canvas will be inserted here -->
+      </div>
+
+      <!-- Div for output text area below canvas -->
+      <div id="output-container">
+        <label for="output-text">Hex Color Codes:</label>
+        <textarea id="output-text" readonly></textarea>
+      </div>
+    </main>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>
