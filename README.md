@@ -88,3 +88,7 @@ For “greg,” which is less likely, you’d need a much longer sequence to see
 - The "bag" analogy works **only if you put the ball back** (replacement). Without replacement, probabilities would change, but that’s not how random character generation works in your program.
 - Think of it like pressing a button on a machine that randomly spits out one of 32 options—each time is independent of the last.
 - Longer combinations (like four letters) are much harder to get because there are exponentially more possibilities.
+
+day 18 found a bug in the way the p5js handels pixel array after 1.9 version
+
+preparing to fille an issueS
