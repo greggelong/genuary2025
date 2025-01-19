@@ -6,6 +6,7 @@ let sz;
 
 function setup() {
   cnv = createCanvas(900, 900);
+  pixelDensity(1);
   let cx = (windowWidth - cnv.width) / 2;
   let cy = (windowHeight - cnv.height) / 2;
   cnv.position(cx, cy);
@@ -13,30 +14,11 @@ function setup() {
   sz = floor(height / 12);
   h = floor(height / 12);
   w = floor(width / 12);
-
-  background(255);
-  //fill(0);
-  // ellipse(200, 200, 20, 20);
-  drawChess2();
-  //frameRate(2);
 }
 
 function draw() {
   drawChess2();
-  noLoop();
-}
-
-function drawChess() {
-  for (let j = 0; j < rows; j++) {
-    for (let i = 0; i < cols; i++) {
-      if ((i + j) % 2 === 0) {
-        fill(255);
-      } else {
-        fill(0);
-      }
-      rect(i * sz, j * sz, sz, sz);
-    }
-  }
+  //SnoLoop();
 }
 
 function drawChess2() {
@@ -63,6 +45,19 @@ function drawChess2() {
 }
 
 function drawChess1() {
+  for (let j = 0; j < rows; j++) {
+    for (let i = 0; i < cols; i++) {
+      if ((i + j) % 2 === 0) {
+        fill(255);
+      } else {
+        fill(0);
+      }
+      rect(i * sz, j * sz, sz, sz);
+    }
+  }
+}
+
+function drawChess() {
   for (let j = 0; j < rows; j++) {
     for (let i = 0; i < cols; i++) {
       if ((i + j) % 2 === 0) {
