@@ -1,0 +1,13 @@
+html, body {
+    height: 100%; /* Ensure the gradient covers the full viewport */
+    margin: 0;    /* Remove default margin */
+  }
+  
+  body {
+    background: linear-gradient(
+      to top,     /* Gradient direction */
+      white,      /* Light color at the bottom */
+      black       /* Dark color at the top */
+    );
+  }
+  
