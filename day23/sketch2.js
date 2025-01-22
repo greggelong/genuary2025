@@ -59,6 +59,7 @@ function draw() {
   drawShape(win, width / 2, height / 2, sz, 0);
   //print(sz);
   //noLoop();
+  noCursor();
 }
 
 function drawShape(img, x, y, d) {
