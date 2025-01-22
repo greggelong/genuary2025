@@ -49,7 +49,7 @@ function draw() {
   } */
   // frameCount * 0.X controls the speed
   if (byhight === true) {
-    sz = map(sin(frameCount * 0.3), -1, 1, height / 3, 10);
+    sz = map(sin(frameCount * 0.3), -1, 1, height / 3, 20);
     exitCase = cnv.height;
   } else {
     sz = map(sin(frameCount * 0.3), -1, 1, width / 3, 10);
