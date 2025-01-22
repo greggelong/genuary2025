@@ -1,4 +1,5 @@
-let grad;
+let c1;
+let c2;
 let cnv;
 let score = 0;
 let clrs = [];
@@ -12,38 +13,54 @@ function setup() {
   noStroke();
 
   // Use the HSB color mode.
-  colorMode(HSB, 360, 100, 100);
+  //colorMode(HSB, 360, 100, 100);
   setgrad();
 }
 
 function setgrad() {
-  grad = random(360);
+  c1 = 255;
+  c2 = random(255);
 }
 
 function draw() {
-  background(grad, 100, 100);
+  //background(c2, 100, 100);
+  // draw background gradient
+  let cc1 = color(c1);
+  let cc2 = color(c2);
+  for (let y = 0; y < height; y++) {
+    let inter = map(y, 0, height, 0, 1);
+    let c = lerpColor(cc1, cc2, inter);
+    stroke(c);
+    line(0, y, width, y);
+  }
 
-  let h = map(mouseX, 0, width, 0, 360);
-  let ph = h.toFixed(0);
-  let pgrad = grad.toFixed(0);
+  let h = map(mouseX, 0, width, 0, 255);
+  let ch = color(h);
 
-  fill(h, 100, 100);
+  stroke(ch);
 
-  // Draw a vertical line.
-  rect(width / 2, height / 2, width / 2, height / 2);
-  fill((grad - 180) % 360, 100, 100); // fill of score is set 180 degrees awy
+  // Draw gradient box
+  for (let y = height / 4; y < height - height / 4; y++) {
+    let inter = map(y, 0, height, 0, 1);
+    let c = lerpColor(cc1, ch, inter);
+    stroke(c);
+    line(width / 4, y, width - width / 4, y);
+  }
+  //rect(width / 2, height / 2, width / 2, height / 2);
+  fill((c2 + 127) % 256, 100, 100); // fill of score is set 180 degrees awy
   //fill(0, 100, 100);
   textSize(50);
   text("SCORE: " + score, 100, 100);
   //text(pgrad + " " + ph, 100, 160);
-  if (ph === pgrad) {
+  if (floor(c2) === floor(h)) {
     score++;
-    clrs.push(pgrad);
+    clrs.push(c2);
     setgrad();
   }
   for (let i = 0; i < clrs.length; i++) {
-    fill(clrs[i], 100, 100);
-    let y = height - sz - sz * i;
-    rect(width - sz, y, sz, sz);
+    stroke(0);
+    fill(clrs[i]);
+    let y = (i * sz) / 2;
+    rect(width - sz, y, sz, sz / 2);
   }
 }
