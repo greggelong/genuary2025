@@ -6,7 +6,7 @@ let pipe;
 let win;
 let btop;
 let buildparts = [];
-let byhight = false;
+let byheight = false;
 let exitCase;
 
 console.log("hello");
@@ -27,12 +27,12 @@ function setup() {
   rectMode(CENTER);
   imageMode(CENTER);
   if (cnv.height > cnv.width) {
-    byhight = true;
+    byheight = true;
   } else {
-    byheith = false;
+    byheigth = false;
   }
   angleMode(DEGREES);
-  print("byheight", byhight);
+  print("byheight", byheight);
 
   //frameRate(10);
 }
@@ -48,11 +48,11 @@ function draw() {
     rect(width / 2, height / 2, sz, sz);
   } */
   // frameCount * 0.X controls the speed
-  if (byhight === true) {
+  if (byheight === true) {
     sz = map(sin(frameCount * 0.3), -1, 1, height / 3, 50);
     exitCase = cnv.height;
   } else {
-    sz = map(sin(frameCount * 0.3), -1, 1, width / 3, 10);
+    sz = map(sin(frameCount * 0.3), -1, 1, width / 3, 20);
     exitCase = cnv.width;
   }
   //if (sz < 10) sz = width / 3;
