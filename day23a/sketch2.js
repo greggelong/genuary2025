@@ -1,5 +1,5 @@
 let sz = 20;
-let binnum = "111101111";
+let binnum = "111110101";
 let cnv;
 let wall;
 let pipe;
