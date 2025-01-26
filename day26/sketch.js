@@ -18,7 +18,7 @@ function setup() {
   noStroke();
   capture.hide();
 }
-
+/*
 function draw() {
   // For every row of pixels
   for (let y = 0; y < capture.height; y += 1) {
@@ -37,6 +37,33 @@ function draw() {
       rect(width - x * vScale, y * vScale, vScale, vScale);
       rect(x * vScale, height - y * vScale, vScale, vScale);
       rect(width - x * vScale, height - y * vScale, vScale, vScale);
+    }
+  }
+}
+
+*/
+function draw() {
+  background(0); // Clear the screen
+
+  // Loop through the capture feed
+  for (let y = 0; y < capture.height; y++) {
+    for (let x = 0; x < capture.width; x++) {
+      // Get the pixel color
+      let colorAtXY = capture.get(x, y);
+      fill(colorAtXY);
+
+      // Original rectangle
+      rect(x * vScale, y * vScale, vScale, vScale);
+
+      // Mirrored rectangles
+      rect((capture.width - x - 1) * vScale, y * vScale, vScale, vScale); // Horizontal mirror
+      rect(x * vScale, (capture.height - y - 1) * vScale, vScale, vScale); // Vertical mirror
+      rect(
+        (capture.width - x - 1) * vScale,
+        (capture.height - y - 1) * vScale,
+        vScale,
+        vScale
+      ); // Both axes
     }
   }
 }
