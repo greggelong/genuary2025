@@ -31,10 +31,12 @@ let clr;
 function setup() {
   createCanvas(windowWidth, windowHeight); // Full-screen canvas
   sz = width / column; // Adjust size based on width
+  rows = height / sz;
   background(0);
   noStroke();
   textSize(sz);
   textFont("monospace");
+  pixelDensity(1);
   frameRate(10);
 }
 
