@@ -31,7 +31,7 @@ let clr;
 function setup() {
   createCanvas(windowWidth, windowHeight); // Full-screen canvas
   sz = width / column; // Adjust size based on width
-  rows = height / sz;
+  rows = height / sz; // adjust rows to height for mobile
   background(0);
   noStroke();
   textSize(sz);
