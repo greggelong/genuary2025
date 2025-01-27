@@ -4,7 +4,7 @@ let nystart = 1000;
 let ny = 1000;
 let sp = 0.03;
 let sz;
-let column = 50;
+let column = 30;
 let rows = 100;
 //let asciiChars = [' ', '.', ':', '-', '=', '+', '*', '#', '%', '@']; // ASCII gradient
 
