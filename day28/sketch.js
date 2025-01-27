@@ -10,6 +10,8 @@ let rows = 100;
 
 let asciiChars = [
   "🐭",
+  "🐭",
+  "🐭",
   "🐂",
   "🐅",
   "🐇",
@@ -20,6 +22,8 @@ let asciiChars = [
   "🐒",
   "🐓",
   "🐕",
+  "🐖",
+  "🐖",
   "🐖",
 ];
 let clr;
@@ -42,9 +46,14 @@ function draw() {
     nx = nxstart; // reset noise x position
     for (let i = 0; i < column; i++) {
       clr = noise(nx, ny);
-      let charIndex =
-        asciiChars.length - 1 - floor(clr * (asciiChars.length - 1));
-      let asciiChar = asciiChars[charIndex];
+      //let charIndex =
+      //  asciiChars.length - 1 - floor(clr * (asciiChars.length - 1));
+      //let charIndex = floor(clr * (asciiChars.length - 1));
+      let charIndex = floor(map(clr, 0, 1, 0, (asciiChars.length - 1) * 2)); // Stretch the range
+      let emojiIndex = charIndex % asciiChars.length; // Wrap around if over the length
+
+      //let charIndex = floor(map(clr, 0, 1, 0, asciiChars.length - 1));
+      let asciiChar = asciiChars[emojiIndex];
       fill(0); // White color for text
       text(asciiChar, i * sz, j * sz + sz);
       nx += 0.05;
