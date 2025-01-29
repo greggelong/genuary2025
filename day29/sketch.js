@@ -11,6 +11,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  pixelDensity(1);
 
   noCursor(); // Hide default cursor
   textAlign(LEFT, TOP);
