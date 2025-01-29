@@ -48,13 +48,13 @@ function generateGrid() {
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       let txtSize = random(12, 40); // Random font size
-      let textSegment = words.slice(index, index + 5).join(" "); // Get text chunk
-      index = (index + 5) % words.length;
+      let textSegment = words.slice(index, index + 4).join(" "); // Get text chunk
+      index = (index + 4) % words.length;
       grid.push({
         x: i * w + 10,
         y: j * h + 10,
-        w: w - 20,
-        h: h - 20,
+        w: w,
+        h: h,
         text: textSegment,
         txtSize: txtSize,
       });
