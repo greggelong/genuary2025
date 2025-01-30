@@ -1,4 +1,4 @@
-let sz = 10;
+let sz = 15;
 let rows = 160;
 let cols = 160;
 // Set the noise level and scale.
@@ -38,6 +38,7 @@ function draw() {
   noiseScale += nsp;
   if (noiseScale > 0.1 || noiseScale < 0.002) {
     nsp = nsp * -1;
-    off += 1000;
+    //off += 1000;
   }
+  off += 0.03;
 }
