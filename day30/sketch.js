@@ -11,7 +11,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   pixelDensity(1);
   cols = floor(width / sz);
-  rows = floor(width / sz);
+  rows = floor(height / sz);
   //noLoop();
 
   // Define geographical colors in an array
