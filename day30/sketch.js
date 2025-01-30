@@ -1,4 +1,4 @@
-let sz = 15;
+let sz = 25;
 let rows = 160;
 let cols = 160;
 // Set the noise level and scale.
